@@ -1,14 +1,24 @@
 language: go
 go:
-  - 1.7.3
-install:
-  - make get-deps
+- 1.7.3
 script:
-  - if [ "${TRAVIS_TAG}" == "" ]; then export VERSION=HEAD;
-    else export VERSION=${TRAVIS_TAG:1}; fi; export BUILD=`git rev-parse HEAD`; echo
-    ${VERSION} ${BUILD}
-  - make build;
-  - make test;
-  - if [ "${VERSION}" != "HEAD" ]; then make dist; fi;
+- if [ "${TRAVIS_TAG}" == "" ]; then export VERSION=HEAD; else export VERSION=${TRAVIS_TAG:1};
+  fi; export BUILD=`git rev-parse HEAD`; echo ${VERSION} ${BUILD}
+- make build;
+- make test;
+- if [ "${VERSION}" != "HEAD" ]; then make dist; fi;
 notifications:
   email: false
+deploy:
+  provider: releases
+  api_key:
+    secure: J/Hp3MSraJVwJbzMktVDBP+c20NKwJz2q8SihHrAQRk56EQ6INza0xuWrI8j6JnCtTyAwNapGsw9Xc2M+/hBcbTZycgp8xSdfGjAnr9p61ulLOqHEZfK5pEIFeCAgx4FEUIKFG0zlUPpElybctKM6ieHKfljihA7BcCLdxG8IKAo7Pe27CEVtgvsnEKnsU3cP/qP7LGam+eDuOXWpIuF+3UYGOi+AV83cI7qUM7O4YMFqkLaK8Yyx3Ds8153+wDbxtMvOK1zo5M1Ync7cZeVE87i7Fmk2ekNT4TYU07HxvEIOMKiM59YG+eM5is32A8apKo7G4lmep7VJI0lO+fgrZgstgBlh+oW5Q2WJcqxBVGFGteWaIqCwSc4qhQUhnX7d4B5VL15y7uKTaeuEllcx62Rg05FXrT5grGfyuVqJd5LOup5dK5AISIHubbosuj8KLXlVLnLLyD8EEnKvfYKQc3zlxYmrR02PaFcjjiNRhgl4hqCtrN4/az3KqRHXgfDAq7/UcVWGc6HcGmiQByyCceII27S8cS12O17mNWWSfVxsbE2Hue4l+ch0M9e0vQG+uHnxLF2LzovrfKR8k5lvsT6aLcYqmtJkaj8QcFp7KZXNna3JZbdQ5XqmRuEh3xHov+XfVqmMBZBeerwukl2N5eegsefzuH1XtMAIfdZV70=
+  skip_cleanup: true
+  overwrite: true
+  file:
+    - dist/docker-volume-location-plugin-${VERSION}-linux_amd64.tar.gz
+    - dist/docker-volume-location-plugin-${VERSION}-linux_arm.tar.gz
+    - dist/docker-volume-location-plugin-${VERSION}-darwin_amd64.tar.gz
+  on:
+    repo: npetzall/docker-volume-location-plugin
+    tags: true

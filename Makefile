@@ -51,7 +51,7 @@ dist/%/$(APP):
 	mkdir -p $(dir $@)
 	$(FLAGS_$*) go build -ldflags "-X main.Version=${VERSION} -X main.Build=${BUILD}" -o dist/$*/${APP} .
 
-dist/hello-http-go-$(VERSION)-%.tar.gz: notHEAD
+dist/$(APP)-$(VERSION)-%.tar.gz: notHEAD
 	$(call msg,"Create TAR for $*")
 	rm -f $@
 	mkdir -p $(dir $@)
