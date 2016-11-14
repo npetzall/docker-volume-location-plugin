@@ -29,7 +29,7 @@ build: get-deps
 
 test: get-deps
 	$(call msg,"Run tests")
-	go test -v ./...
+	go test -v .
 .PHONY: test
 
 clean:
