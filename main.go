@@ -22,7 +22,7 @@ func main() {
 	flag.Parse()
 
 	if *version {
-		fmt.Printf("hello-http-go version: %s, build: %s\n", Version, Build)
+		fmt.Printf("docker-volume-location-plugin version: %s, build: %s\n", Version, Build)
 		os.Exit(0)
 	}
 
