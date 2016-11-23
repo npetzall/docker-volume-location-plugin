@@ -128,11 +128,11 @@ func TestDriver(t *testing.T) {
 			res := d.Get(volume.Request{Name: "atDv3DoesntExist"})
 			So(res.Err, ShouldNotBeEmpty)
 		})
-		Convey("Create volume with alias that doesnt exist causes error", func() {
+		Convey("Create volume with alias that doesn't exist causes error", func() {
 			res := d.Create(volume.Request{Name: "shouldntBeCreated", Options: map[string]string{"location": "doesntExist"}})
 			So(res.Err, ShouldNotBeEmpty)
 		})
-		Convey("Remove a volume that doesnt exist, returns error", func() {
+		Convey("Remove a volume that doesn't exist, returns error", func() {
 			res := d.Remove(volume.Request{Name: "doesntExist"})
 			So(res.Err, ShouldNotBeEmpty)
 		})

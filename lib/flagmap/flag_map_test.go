@@ -12,7 +12,7 @@ func TestFlagMapSetAliasAndPath(t *testing.T) {
 		var f = make(flagmap.FlagMap)
 		Convey("Given input string \"alias=path\"", func() {
 			i := "alias=path"
-			Convey("When added thru set", func() {
+			Convey("When added through set", func() {
 				f.Set(i)
 				Convey("There should be a key \"alias\" with value \"path\"", func() {
 					v, ke := f["alias"]
@@ -23,7 +23,7 @@ func TestFlagMapSetAliasAndPath(t *testing.T) {
 		})
 		Convey("Given input string \"path\"", func() {
 			i := "path"
-			Convey("When added thru set", func() {
+			Convey("When added through set", func() {
 				f.Set(i)
 				Convey("There should be a key \"default\" with value \"path\"", func() {
 					v, ke := f["default"]
@@ -34,7 +34,7 @@ func TestFlagMapSetAliasAndPath(t *testing.T) {
 		})
 		Convey("Given invalid input string \"alias=path=invalid\"", func() {
 			i := "alias=path=invalid"
-			Convey("When added thru set", func() {
+			Convey("When added through set", func() {
 				f.Set(i)
 				Convey("Then no key or values should exist", func() {
 					So(f, ShouldBeEmpty)

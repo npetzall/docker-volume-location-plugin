@@ -28,6 +28,8 @@ type volumeLocationDriver struct {
 	m         *sync.Mutex
 }
 
+//Create a new volumeLocationDriver
+//Supply a *map[string]string where key is alias and value is a path
 func NewVolumeLocationDriver(locations *map[string]string) volumeLocationDriver {
 	d := volumeLocationDriver{
 		locations: locations,

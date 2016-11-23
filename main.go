@@ -12,8 +12,10 @@ import (
 )
 
 var (
+	//Version set by build tool
 	Version string
-	Build   string
+	//Revision set by build tool
+	Build string
 )
 
 var (
