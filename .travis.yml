@@ -18,7 +18,6 @@ deploy:
   file:
     - dist/docker-volume-location-plugin-${VERSION}-linux_amd64.tar.gz
     - dist/docker-volume-location-plugin-${VERSION}-linux_arm.tar.gz
-    - dist/docker-volume-location-plugin-${VERSION}-darwin_amd64.tar.gz
   on:
     repo: npetzall/docker-volume-location-plugin
     tags: true
