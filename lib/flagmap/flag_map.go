@@ -5,15 +5,15 @@ import (
 	"strings"
 )
 
-//FlagMap is used with flag.Var to handle map like structure
+//FlagMap is used with flag.Var to handle map like structure.
 type FlagMap map[string]string
 
-//Return a string representation of flagMap
+//String returns a string representation of flagMap.
 func (f *FlagMap) String() string {
 	return fmt.Sprint(*f)
 }
 
-//Value.Set method
+//Set method from Value.Set.
 //Will plit string on '='
 //Key in map will be default is singel value (no '=')
 //If multiple '=' exists it will be ignored

@@ -14,7 +14,7 @@ import (
 var (
 	//Version set by build tool
 	Version string
-	//Revision set by build tool
+	//Build revision set by build tool
 	Build string
 )
 
