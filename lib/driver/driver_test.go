@@ -151,7 +151,7 @@ func TestDriver(t *testing.T) {
 		Convey("Capabilities should contain Scope:Global", func() {
 			res := d.Capabilities(volume.Request{})
 			So(res.Err, ShouldBeEmpty)
-			So(res.Capabilities.Scope, ShouldEqual, "global")
+			So(res.Capabilities.Scope, ShouldEqual, "local")
 		})
 	})
 	os.RemoveAll(basePaht)

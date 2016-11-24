@@ -186,6 +186,6 @@ func (d volumeLocationDriver) Unmount(r volume.UnmountRequest) volume.Response {
 func (d volumeLocationDriver) Capabilities(r volume.Request) volume.Response {
 	defer profiler.Timed(time.Now(), "Capabilities")
 	var res volume.Response
-	res.Capabilities = volume.Capability{Scope: "global"}
+	res.Capabilities = volume.Capability{Scope: "local"}
 	return res
 }
